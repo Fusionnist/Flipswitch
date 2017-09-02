@@ -67,6 +67,10 @@ namespace wtf
                         }
                         break;
 
+                    case NetIncomingMessageType.ConnectionApproval:
+                        message.SenderConnection.Approve();
+                        break;
+
                     case NetIncomingMessageType.DiscoveryResponse:
                         peer.Connect(message.SenderEndPoint);
                         break;
