@@ -98,14 +98,17 @@ namespace wtf
         }
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            GraphicsDevice.SetRenderTarget(mainTarget);
             spriteBatch.Begin();
             player.Draw(spriteBatch);
             if (helperReturn == 1)
             {
                 spriteBatch.Draw(Content.Load<Texture2D>("square"), new Vector2(600));
             }
+            spriteBatch.End();
+            GraphicsDevice.SetRenderTarget(null);
+            spriteBatch.Begin();
+            spriteBatch.Draw(mainTarget, destinationRectangle: drawDestination);
             spriteBatch.End();
             base.Draw(gameTime);
         }
