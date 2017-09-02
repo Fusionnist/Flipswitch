@@ -21,6 +21,7 @@ namespace wtf
             peerConfig.EnableMessageType(NetIncomingMessageType.Data);
             peerConfig.EnableMessageType(NetIncomingMessageType.StatusChanged);
             peerConfig.EnableMessageType(NetIncomingMessageType.DebugMessage);
+            peerConfig.EnableMessageType(NetIncomingMessageType.WarningMessage);
             peerConfig.AcceptIncomingConnections = true;
             peerConfig.Port = 8000;
             peer = new NetPeer(peerConfig);
@@ -30,7 +31,7 @@ namespace wtf
         public void Update(float a_es)
         {
             if (peer.ConnectionsCount == 0)
-            { peer.DiscoverKnownPeer("176.135.163.41", 8000); }
+            { peer.DiscoverKnownPeer("176.143.207.143", 8000); }
             else
                 SendMessage();
         }
@@ -74,6 +75,11 @@ namespace wtf
                         break;
 
                     case NetIncomingMessageType.DebugMessage:
+                        Console.WriteLine(message.ReadString());
+                        break;
+
+
+                    case NetIncomingMessageType.WarningMessage:
                         Console.WriteLine(message.ReadString());
                         break;
 
