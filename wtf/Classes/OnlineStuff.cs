@@ -19,6 +19,7 @@ namespace wtf
             peerConfig.EnableMessageType(NetIncomingMessageType.DiscoveryResponse);
             peerConfig.EnableMessageType(NetIncomingMessageType.DiscoveryRequest);
             peerConfig.EnableMessageType(NetIncomingMessageType.Data);
+            peerConfig.EnableMessageType(NetIncomingMessageType.ConnectionApproval);
             peerConfig.EnableMessageType(NetIncomingMessageType.StatusChanged);
             peerConfig.EnableMessageType(NetIncomingMessageType.DebugMessage);
             peerConfig.EnableMessageType(NetIncomingMessageType.WarningMessage);
