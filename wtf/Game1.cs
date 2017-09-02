@@ -14,6 +14,7 @@ namespace wtf
         CoolTexture testTex;
         Entity player;
         PadHelper left, right;
+        OnlineStuff 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
