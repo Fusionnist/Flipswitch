@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
+using System;
 namespace wtf
 {
     /// <summary>
@@ -12,6 +12,10 @@ namespace wtf
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         CoolTexture testTex;
+        Point vdims;
+        Rectangle drawDestination;
+        int scale; float zoom;
+        RenderTarget2D mainTarget;
         Entity player;
         PadHelper left, right;
         public Game1()
@@ -21,9 +25,24 @@ namespace wtf
         }
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            graphics.PreferredBackBufferHeight = 1080 / 2;
+            graphics.PreferredBackBufferWidth = 1920 / 2;
+            Window.IsBorderless = true;
+            graphics.ApplyChanges();
             base.Initialize();
+        }
+        void SetupDrawVariables()
+        {
+            vdims = new Point(400, 400);
+            mainTarget = new RenderTarget2D(GraphicsDevice, vdims.X, vdims.Y);
+            int scalex = GraphicsDevice.Viewport.Width / vdims.X;
+            int scaley = GraphicsDevice.Viewport.Height / vdims.Y;
+            scale = Math.Min(scalex, scaley);
+            drawDestination = new Rectangle(
+                (GraphicsDevice.Viewport.Width - (vdims.X * scale))/2,
+                (GraphicsDevice.Viewport.Height - (vdims.Y * scale))/2,
+                vdims.X * scale,
+                vdims.Y * scale);
         }
         protected override void LoadContent()
         {
