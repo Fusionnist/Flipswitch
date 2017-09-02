@@ -18,7 +18,7 @@ namespace wtf
         RenderTarget2D mainTarget;
         Entity player;
         PadHelper left, right;
-        OnlineStuff 
+         
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -95,10 +95,13 @@ namespace wtf
         }
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            GraphicsDevice.SetRenderTarget(mainTarget);
             spriteBatch.Begin();
             player.Draw(spriteBatch);
+            spriteBatch.End();
+            GraphicsDevice.SetRenderTarget(null);
+            spriteBatch.Begin();
+            spriteBatch.Draw(mainTarget, destinationRectangle: drawDestination);
             spriteBatch.End();
             base.Draw(gameTime);
         }
