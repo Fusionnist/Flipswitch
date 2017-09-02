@@ -27,7 +27,7 @@ namespace wtf
             peer.Start();
         }
 
-        public void Update(int a_es)
+        public void Update(float a_es)
         {
             if (peer.ConnectionsCount == 0)
             { peer.DiscoverKnownPeer("176.135.163.41", 8000); }

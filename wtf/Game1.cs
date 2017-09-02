@@ -86,6 +86,7 @@ namespace wtf
             player.Move(index, (float)gameTime.ElapsedGameTime.TotalSeconds);
             player.MultMov((float)gameTime.ElapsedGameTime.TotalSeconds);
             player.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+            onlineHelper.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
             helperReturn = onlineHelper.HandleWebConnections();
 
             //! update pipeline !
