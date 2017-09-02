@@ -42,15 +42,19 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classes\CoolTexture.cs" />
+    <Compile Include="Classes\Entity.cs" />
+    <Compile Include="Classes\FRectangle.cs" />
+    <Compile Include="Classes\KeyHelper.cs" />
+    <Compile Include="Classes\PadHelper.cs" />
+    <Compile Include="Classes\Sprite.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="OnlineStuff.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="LidgrenUdpNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LidgrenUdpNet.1.0.4\lib\net45\LidgrenUdpNet.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="MonoGame.Framework">
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
