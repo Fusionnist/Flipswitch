@@ -75,16 +75,16 @@ namespace wtf
                         break;
 
                     case NetIncomingMessageType.DebugMessage:
-                        Console.WriteLine(message.ReadString());
+                        Debug.WriteLine(message.ReadString());
                         break;
 
 
                     case NetIncomingMessageType.WarningMessage:
-                        Console.WriteLine(message.ReadString());
+                        Debug.WriteLine(message.ReadString());
                         break;
 
                     default:
-                        Console.WriteLine("unhandled message with type: "
+                        Debug.WriteLine("unhandled message with type: "
                             + message.MessageType);
                         break;
                 }
