@@ -19,6 +19,7 @@ namespace wtf
         Entity player;
         PadHelper left, right;
         OnlineStuff onlineHelper;
+        int helperReturn;
 
         public Game1()
         {
@@ -84,7 +85,7 @@ namespace wtf
             player.Move(index, (float)gameTime.ElapsedGameTime.TotalSeconds);
             player.MultMov((float)gameTime.ElapsedGameTime.TotalSeconds);
             player.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
-
+            helperReturn = onlineHelper.HandleWebConnections();
 
             //! update pipeline !
             //move
@@ -101,6 +102,10 @@ namespace wtf
 
             spriteBatch.Begin();
             player.Draw(spriteBatch);
+            if (helperReturn == 1)
+            {
+                spriteBatch.Draw(Content.Load<Texture2D>("square"), new Vector2(600));
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }

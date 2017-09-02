@@ -29,10 +29,11 @@ namespace wtf
 
         public void Update(int a_es)
         {
-            HandleWebConnections();
+            if (peer.ConnectionsCount == 0)
+            { peer.DiscoverKnownPeer("176.135.163.41", 8000); }
         }
 
-        void HandleWebConnections()
+        public int HandleWebConnections()
         {
             NetIncomingMessage message;
             while ((message = peer.ReadMessage()) != null)
@@ -40,8 +41,7 @@ namespace wtf
                 switch (message.MessageType)
                 {
                     case NetIncomingMessageType.Data:
-                        //data code
-                        break;
+                        return 1;
 
                     case NetIncomingMessageType.StatusChanged:
                         switch (message.SenderConnection.Status)
@@ -76,6 +76,7 @@ namespace wtf
                 }
                 peer.Recycle(message);
             }
+            return 0;
         }
     }
 }
