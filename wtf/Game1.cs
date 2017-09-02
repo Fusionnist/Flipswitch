@@ -18,6 +18,7 @@ namespace wtf
         RenderTarget2D mainTarget;
         Entity player;
         PadHelper left, right;
+        OnlineStuff 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
