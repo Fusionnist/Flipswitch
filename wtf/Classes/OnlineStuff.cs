@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using Lidgren.Network;
 
 namespace wtf
@@ -39,19 +40,16 @@ namespace wtf
                 switch (message.MessageType)
                 {
                     case NetIncomingMessageType.Data:
-                        movdataX = message.ReadInt32();
-                        movdataY = message.ReadInt32();
+                        //data code
                         break;
 
                     case NetIncomingMessageType.StatusChanged:
                         switch (message.SenderConnection.Status)
                         {
                             case NetConnectionStatus.Connected:
-                                ship2 = new Sprite(Content.Load<Texture2D>("ship"), new Vector2(0, 0));
                                 Debug.WriteLine("Connected!");
                                 break;
                             case NetConnectionStatus.Disconnected:
-                                ship2 = null;
                                 Debug.WriteLine("Disconnected...");
                                 break;
                         }
