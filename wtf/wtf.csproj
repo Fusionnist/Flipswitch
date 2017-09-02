@@ -42,6 +42,12 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classes\CoolTexture.cs" />
+    <Compile Include="Classes\Entity.cs" />
+    <Compile Include="Classes\FRectangle.cs" />
+    <Compile Include="Classes\KeyHelper.cs" />
+    <Compile Include="Classes\PadHelper.cs" />
+    <Compile Include="Classes\Sprite.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
