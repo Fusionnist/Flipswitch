@@ -68,7 +68,7 @@ namespace wtf
                         break;
 
                     case NetIncomingMessageType.DiscoveryResponse:
-                        peer.Connect("176.135.163.41", 8000, peer.CreateMessage("yes"));
+                        peer.Connect(message.SenderEndPoint);
                         break;
 
                     case NetIncomingMessageType.DiscoveryRequest:
