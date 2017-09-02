@@ -41,6 +41,8 @@ namespace wtf
         {
             var message = peer.CreateMessage();
             message.Write(1);
+            if (peer.ConnectionsCount > 0)
+                peer.SendMessage(message, peer.Connections[0], NetDeliveryMethod.ReliableOrdered);
         }
 
         public int HandleWebConnections()
