@@ -45,12 +45,14 @@ namespace wtf
         public int HandleWebConnections()
         {
             NetIncomingMessage message;
+            bool x = false;
             while ((message = peer.ReadMessage()) != null)
             {
                 switch (message.MessageType)
                 {
                     case NetIncomingMessageType.Data:
-                        return 1;
+                        x = true;
+                        break;
 
                     case NetIncomingMessageType.StatusChanged:
                         switch (message.SenderConnection.Status)
@@ -90,7 +92,10 @@ namespace wtf
                 }
                 peer.Recycle(message);
             }
-            return 0;
+            if (!x)
+                return 0;
+            else
+                return 1;
         }
     }
 }
