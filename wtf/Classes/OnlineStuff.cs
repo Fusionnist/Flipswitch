@@ -31,6 +31,14 @@ namespace wtf
         {
             if (peer.ConnectionsCount == 0)
             { peer.DiscoverKnownPeer("176.135.163.41", 8000); }
+            else
+                SendMessage();
+        }
+
+        public void SendMessage()
+        {
+            var message = peer.CreateMessage();
+            message.Write(1);
         }
 
         public int HandleWebConnections()
