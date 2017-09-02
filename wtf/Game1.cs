@@ -32,6 +32,7 @@ namespace wtf
             graphics.PreferredBackBufferWidth = 1920 / 2;
             Window.IsBorderless = true;
             graphics.ApplyChanges();
+            SetupDrawVariables();
             base.Initialize();
         }
         void SetupDrawVariables()
