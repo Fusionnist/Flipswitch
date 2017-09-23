@@ -105,7 +105,7 @@ namespace wtf
             player.Draw(spriteBatch);
             if (helperReturn == 1)
             {
-                spriteBatch.Draw(Content.Load<Texture2D>("square"), new Vector2(100));
+                spriteBatch.Draw(Content.Load<Texture2D>("square"), new Vector2(200));
             }
             spriteBatch.End();
             GraphicsDevice.SetRenderTarget(null);
