@@ -62,7 +62,7 @@ namespace wtf
             left = new PadHelper(Buttons.RightThumbstickLeft);
             right = new PadHelper(Buttons.RightThumbstickRight);
             player = new Entity(new Vector2(300, 300), new CoolTexture[1] { testTex }, 100, 0, 0, new Vector2(100, 10));
-            onlineHelper = new OnlineStuff();
+            onlineHelper = new OnlineStuff(this);
         }
         protected override void UnloadContent()
         {
