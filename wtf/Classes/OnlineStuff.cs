@@ -131,7 +131,8 @@ namespace wtf
 
         public void Draw(SpriteBatch a_sb, SpriteFont font)
         {
-            a_sb.DrawString(font, massage, Vector2.Zero, Color.White);
+            if (massage != null)
+            { a_sb.DrawString(font, massage, Vector2.Zero, Color.White); }
             if (isServer)
                 a_sb.DrawString(font, "ass", Vector2.Zero, Color.White);
         }

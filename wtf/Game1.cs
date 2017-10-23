@@ -145,6 +145,7 @@ namespace wtf
             GraphicsDevice.SetRenderTarget(null);
             spriteBatch.Begin();
             spriteBatch.Draw(mainTarget, destinationRectangle: drawDestination);
+            onlineHelper.Draw(spriteBatch, font);
             spriteBatch.End();
             base.Draw(gameTime);
         }
