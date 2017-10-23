@@ -15,6 +15,8 @@ namespace wtf
         NetPeer peer;
         Game1 game;
         string massage;
+        public bool connecting;
+
         public OnlineStuff(Game1 game_)
         {
             game = game_;
@@ -31,14 +33,15 @@ namespace wtf
             peerConfig.Port = 8000;
             peer = new NetPeer(peerConfig);
             peer.Start();
-
+            connecting = false;
             ipId = new IPID();
         }
 
         public void Update(float a_es)
         {
-            if (peer.ConnectionsCount == 0)
+            if (connecting)
             { peer.DiscoverKnownPeer("78.123.22.67", 8000); }
+            HandleWebConnections();
         }
 
         public void SendMessage(int[] ids, string msg)

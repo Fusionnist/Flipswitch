@@ -102,20 +102,19 @@ namespace wtf
             player.MultMov((float)gameTime.ElapsedGameTime.TotalSeconds);
             player.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
             onlineHelper.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
-            helperReturn = onlineHelper.HandleWebConnections();
 
             nigga.Update(Keyboard.GetState());
             spaceConnect.Update(Keyboard.GetState());
             enterkey.Update(Keyboard.GetState());
             if (enterkey.justPressed())
             {
-                //send da string first
+                onlineHelper.SendMessage(new int[] { 0 }, nigga.getString());
                 nigga.Reset();
                
             }
             if (spaceConnect.justPressed())
             {
-                //connect n all
+                onlineHelper.connecting = true;
                 nigga.Reset();
             }
             //! update pipeline !
