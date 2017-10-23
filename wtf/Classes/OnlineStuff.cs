@@ -87,6 +87,7 @@ namespace wtf
 
                     case NetIncomingMessageType.DiscoveryResponse:
                         peer.Connect(message.SenderEndPoint);
+                        connecting = false;
                         break;
 
                     case NetIncomingMessageType.DiscoveryRequest:
