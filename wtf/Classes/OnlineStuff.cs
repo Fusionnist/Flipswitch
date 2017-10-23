@@ -15,7 +15,7 @@ namespace wtf
         NetPeer peer;
         Game1 game;
         string massage;
-        public bool connecting;
+        public bool connecting, isServer;
 
         public OnlineStuff(Game1 game_)
         {
@@ -34,6 +34,7 @@ namespace wtf
             peer = new NetPeer(peerConfig);
             peer.Start();
             connecting = false;
+            isServer = false;
             ipId = new IPID();
         }
 
@@ -94,6 +95,8 @@ namespace wtf
                         var msg = peer.CreateMessage();
                         msg.Write("hi");
                         peer.SendDiscoveryResponse(msg, message.SenderEndPoint);
+                        peer.Connect(message.SenderEndPoint);
+                        isServer = true;
                         break;
 
                     case NetIncomingMessageType.DebugMessage:
