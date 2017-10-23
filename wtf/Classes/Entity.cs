@@ -18,6 +18,10 @@ namespace wtf
             yVelLoss = yVelLoss_;
             maxMov = a_maxMov;
         }
+        public void Input(Vector2 i_)
+        {
+
+        }
         void SelectTexture(string name)
         {
             foreach (CoolTexture ct in texes)
