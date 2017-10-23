@@ -59,7 +59,10 @@ namespace wtf
             var message = peer.CreateMessage();
             message.Write(msg);
             foreach (var id in ids)
-                peer.SendMessage(message, peer.Connections[id], NetDeliveryMethod.ReliableOrdered);
+            {
+                if (id < peer.Connections.Count)
+                    peer.SendMessage(message, peer.Connections[id], NetDeliveryMethod.ReliableOrdered);
+            }
         }
 
         public void HandleWebConnections()
