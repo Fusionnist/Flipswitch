@@ -17,6 +17,7 @@ namespace wtf
         NetPeer peer;
         Game1 game;
         string massage;
+        public Vector2 input;
         public bool connecting, isServer;
 
         public OnlineStuff(Game1 game_)
@@ -126,6 +127,13 @@ namespace wtf
             {
                 case '0':
                     massage = message.Substring(2);
+                    break;
+
+                case '1':
+                    string[] values = message.Split(' ');
+                    float x = float.Parse(values[1]);
+                    float y = float.Parse(values[2]);
+                    input = new Vector2(x, y);
                     break;
             }
 

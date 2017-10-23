@@ -116,7 +116,7 @@ namespace wtf
             enterkey.Update(kbs);
             if (enterkey.justPressed())
             {
-                onlineHelper.SendMessage(new int[] { 0 }, nigga.getString());
+                onlineHelper.SendMessage(new int[] { 0 }, "0 " + nigga.getString());
                 nigga.Reset();
                
             }
