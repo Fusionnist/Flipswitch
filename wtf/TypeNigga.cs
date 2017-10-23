@@ -29,32 +29,32 @@ namespace wtf
             keys.Add(new KeyHelper(Keys.NumPad0, "0"));
             keys.Add(new KeyHelper(Keys.Decimal, "."));
 
-            keys.Add(new KeyHelper(Keys.Decimal, "A"));
-            keys.Add(new KeyHelper(Keys.Decimal, "B"));
-            keys.Add(new KeyHelper(Keys.Decimal, "C"));
-            keys.Add(new KeyHelper(Keys.Decimal, "D"));
-            keys.Add(new KeyHelper(Keys.Decimal, "E"));
-            keys.Add(new KeyHelper(Keys.Decimal, "F"));
-            keys.Add(new KeyHelper(Keys.Decimal, "G"));
-            keys.Add(new KeyHelper(Keys.Decimal, "H"));
-            keys.Add(new KeyHelper(Keys.Decimal, "I"));
-            keys.Add(new KeyHelper(Keys.Decimal, "J"));
-            keys.Add(new KeyHelper(Keys.Decimal, "K"));
-            keys.Add(new KeyHelper(Keys.Decimal, "L"));
-            keys.Add(new KeyHelper(Keys.Decimal, "M"));
-            keys.Add(new KeyHelper(Keys.Decimal, "N"));
-            keys.Add(new KeyHelper(Keys.Decimal, "O"));
-            keys.Add(new KeyHelper(Keys.Decimal, "P"));
-            keys.Add(new KeyHelper(Keys.Decimal, "Q"));
-            keys.Add(new KeyHelper(Keys.Decimal, "R"));
-            keys.Add(new KeyHelper(Keys.Decimal, "S"));
-            keys.Add(new KeyHelper(Keys.Decimal, "T"));
-            keys.Add(new KeyHelper(Keys.Decimal, "U"));
-            keys.Add(new KeyHelper(Keys.Decimal, "V"));
-            keys.Add(new KeyHelper(Keys.Decimal, "W"));
-            keys.Add(new KeyHelper(Keys.Decimal, "XXX"));
-            keys.Add(new KeyHelper(Keys.Decimal, "why"));
-            keys.Add(new KeyHelper(Keys.Decimal, "zee"));
+            keys.Add(new KeyHelper(Keys.A, "A"));
+            keys.Add(new KeyHelper(Keys.B, "B"));
+            keys.Add(new KeyHelper(Keys.C, "C"));
+            keys.Add(new KeyHelper(Keys.D, "D"));
+            keys.Add(new KeyHelper(Keys.E, "E"));
+            keys.Add(new KeyHelper(Keys.F, "F"));
+            keys.Add(new KeyHelper(Keys.G, "G"));
+            keys.Add(new KeyHelper(Keys.H, "H"));
+            keys.Add(new KeyHelper(Keys.I, "I"));
+            keys.Add(new KeyHelper(Keys.J, "J"));
+            keys.Add(new KeyHelper(Keys.K, "K"));
+            keys.Add(new KeyHelper(Keys.L, "L"));
+            keys.Add(new KeyHelper(Keys.M, "M"));
+            keys.Add(new KeyHelper(Keys.N, "N"));
+            keys.Add(new KeyHelper(Keys.O, "O"));
+            keys.Add(new KeyHelper(Keys.P, "P"));
+            keys.Add(new KeyHelper(Keys.Q, "Q"));
+            keys.Add(new KeyHelper(Keys.R, "R"));
+            keys.Add(new KeyHelper(Keys.S, "S"));
+            keys.Add(new KeyHelper(Keys.T, "T"));
+            keys.Add(new KeyHelper(Keys.U, "U"));
+            keys.Add(new KeyHelper(Keys.V, "V"));
+            keys.Add(new KeyHelper(Keys.W, "W"));
+            keys.Add(new KeyHelper(Keys.X, "XXX"));
+            keys.Add(new KeyHelper(Keys.Y, "why"));
+            keys.Add(new KeyHelper(Keys.Z, "zee"));
         }
 
         public void Update(KeyboardState kbs)
