@@ -24,7 +24,7 @@ namespace wtf
         Rectangle drawDestination;
         int scale; float zoom;
         RenderTarget2D mainTarget;
-        Entity player;
+        Entity player,gaydude;
         PadHelper left, right;
         OnlineStuff onlineHelper;
         int helperReturn;
@@ -66,6 +66,9 @@ namespace wtf
             enterkey = new KeyHelper(Keys.Enter, "ENTER NIGGA 3000");
 
             u = new KeyHelper(Keys.Up, "UP");
+            d = new KeyHelper(Keys.Down, "DOWN");
+            l = new KeyHelper(Keys.Left, "LEFT");
+            r = new KeyHelper(Keys.Right, "RIGHT");
 
             font = Content.Load<SpriteFont>("File");
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -80,6 +83,7 @@ namespace wtf
             left = new PadHelper(Buttons.RightThumbstickLeft);
             right = new PadHelper(Buttons.RightThumbstickRight);
             player = new Entity(new Vector2(300, 300), new CoolTexture[1] { testTex }, 100, 0, 0, new Vector2(100, 10));
+            gaydude = new Entity(new Vector2(300, 300), new CoolTexture[1] { testTex }, 100, 0, 0, new Vector2(100, 10));
             onlineHelper = new OnlineStuff(this);
         }
         protected override void UnloadContent()
@@ -87,6 +91,7 @@ namespace wtf
         }
         protected override void Update(GameTime gameTime)
         {
+            KeyboardState kbs = Keyboard.GetState();
             //initialize all logic
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
@@ -106,9 +111,9 @@ namespace wtf
             player.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
             onlineHelper.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 
-            nigga.Update(Keyboard.GetState());
-            spaceConnect.Update(Keyboard.GetState());
-            enterkey.Update(Keyboard.GetState());
+            nigga.Update(kbs);
+            spaceConnect.Update(kbs);
+            enterkey.Update(kbs);
             if (enterkey.justPressed())
             {
                 onlineHelper.SendMessage(new int[] { 0 }, nigga.getString());
@@ -120,14 +125,18 @@ namespace wtf
                 onlineHelper.StartConnection(nigga.getString());
                 nigga.Reset();
             }
-            //! update pipeline !
-            //move
+            u.Update(kbs);
+            r.Update(kbs);
+            l.Update(kbs);
+            d.Update(kbs);
+            Vector2 input = new Vector2();
+            if (u.isPressesd()) { input.Y -= 3; }
+            if (d.isPressesd()) { input.Y += 3; }
+            if (l.isPressesd()) { input.X -= 3; }
+            if (r.isPressesd()) { input.X += 3; }
+            player.Input(input);
+            //send input here, louis (wink)
 
-            //mult movement
-
-            //collisions
-
-            //update
         }
         protected override void Draw(GameTime gameTime)
         {
@@ -137,6 +146,7 @@ namespace wtf
             if(onlineHelper.getData()!=null)
                 spriteBatch.DrawString(font, onlineHelper.getData(), new Vector2(0,40), Color.AliceBlue);
             player.Draw(spriteBatch);
+            gaydude.Draw(spriteBatch);
             if (helperReturn == 1)
             {
                 spriteBatch.Draw(Content.Load<Texture2D>("square"), new Vector2(200));
