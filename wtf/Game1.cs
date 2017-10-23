@@ -135,7 +135,9 @@ namespace wtf
             if (l.isPressesd()) { input.X -= 3; }
             if (r.isPressesd()) { input.X += 3; }
             player.Input(input);
+            gaydude.Input(onlineHelper.input);
             //send input here, louis (wink)
+            onlineHelper.SendMessage(new int[] { 0 }, "1 " + input.X + " " + input.Y);
 
         }
         protected override void Draw(GameTime gameTime)
