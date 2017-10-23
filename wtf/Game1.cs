@@ -114,7 +114,7 @@ namespace wtf
             }
             if (spaceConnect.justPressed())
             {
-                onlineHelper.connecting = true;
+                onlineHelper.StartConnection(nigga.getString());
                 nigga.Reset();
             }
             //! update pipeline !

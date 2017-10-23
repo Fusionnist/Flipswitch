@@ -40,8 +40,14 @@ namespace wtf
         public void Update(float a_es)
         {
             if (connecting)
-            { peer.DiscoverKnownPeer("78.123.22.67", 8000); }
+            { peer.DiscoverKnownPeer(ipId.ips[0], 8000); }
             HandleWebConnections();
+        }
+
+        public void StartConnection(string IP)
+        {
+            ipId.AddID(IP);
+            connecting = true;
         }
 
         public void SendMessage(int[] ids, string msg)
@@ -129,7 +135,7 @@ namespace wtf
             ips = new List<string>();
             ids = new List<int>();
         }
-        void AddID(string ip_)
+        public void AddID(string ip_)
         {
             //make sure I don't already have that IP
             bool hasIp = false;
