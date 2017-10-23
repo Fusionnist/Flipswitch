@@ -14,6 +14,7 @@ namespace wtf
         NetPeerConfiguration peerConfig;
         NetPeer peer;
         Game1 game;
+        string massage;
         public OnlineStuff(Game1 game_)
         {
             game = game_;
@@ -30,34 +31,33 @@ namespace wtf
             peerConfig.Port = 8000;
             peer = new NetPeer(peerConfig);
             peer.Start();
+
+            ipId = new IPID();
         }
 
         public void Update(float a_es)
         {
             if (peer.ConnectionsCount == 0)
             { peer.DiscoverKnownPeer("78.123.22.67", 8000); }
-            else
-                SendMessage();
         }
 
-        public void SendMessage()
+        public void SendMessage(int[] ids, string msg)
         {
             var message = peer.CreateMessage();
-            message.Write(1);
-            if (peer.ConnectionsCount > 0)
-                peer.SendMessage(message, peer.Connections[0], NetDeliveryMethod.ReliableOrdered);
+            message.Write(msg);
+            foreach (var id in ids)
+                peer.SendMessage(message, peer.Connections[id], NetDeliveryMethod.ReliableOrdered);
         }
 
-        public int HandleWebConnections()
+        public void HandleWebConnections()
         {
             NetIncomingMessage message;
-            bool x = false;
             while ((message = peer.ReadMessage()) != null)
             {
                 switch (message.MessageType)
                 {
                     case NetIncomingMessageType.Data:
-                        x = true;
+                        HandleData(message);
                         break;
 
                     case NetIncomingMessageType.StatusChanged:
@@ -102,18 +102,24 @@ namespace wtf
                 }
                 peer.Recycle(message);
             }
-            if (!x)
-                return 0;
-            else
-                return 1;
+        }
+
+        public void HandleData(NetIncomingMessage msg)
+        {
+            massage = msg.PeekString();
+        }
+
+        public string getData()
+        {
+            return massage;
         }
     }
 
     public class IPID
     {
         int IDCount;
-        List<string> ips;
-        List<int> ids;
+        public List<string> ips;
+        public List<int> ids;
         public IPID()
         {
             IDCount = 0;
