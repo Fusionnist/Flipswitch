@@ -131,7 +131,8 @@ namespace wtf
             GraphicsDevice.SetRenderTarget(mainTarget);
             spriteBatch.Begin();
             spriteBatch.DrawString(font, nigga.getString(), Vector2.Zero,Color.AliceBlue);
-            spriteBatch.DrawString(font, onlineHelper.getData(), new Vector2(0,40), Color.AliceBlue);
+            if(onlineHelper.getData()!=null)
+                spriteBatch.DrawString(font, onlineHelper.getData(), new Vector2(0,40), Color.AliceBlue);
             player.Draw(spriteBatch);
             if (helperReturn == 1)
             {
