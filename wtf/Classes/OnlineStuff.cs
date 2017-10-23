@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Lidgren.Network;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace wtf
 {
@@ -125,6 +127,13 @@ namespace wtf
         public string getData()
         {
             return massage;
+        }
+
+        public void Draw(SpriteBatch a_sb, SpriteFont font)
+        {
+            a_sb.DrawString(font, massage, Vector2.Zero, Color.White);
+            if (isServer)
+                a_sb.DrawString(font, "ass", Vector2.Zero, Color.White);
         }
     }
 
