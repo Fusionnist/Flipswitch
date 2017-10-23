@@ -121,7 +121,14 @@ namespace wtf
 
         public void HandleData(NetIncomingMessage msg)
         {
-            massage = msg.PeekString();
+            string message = msg.PeekString();
+            switch (message[0])
+            {
+                case '0':
+                    massage = message.Substring(2);
+                    break;
+            }
+
         }
 
         public string getData()
