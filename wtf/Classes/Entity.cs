@@ -20,7 +20,7 @@ namespace wtf
         }
         public void Input(Vector2 i_)
         {
-
+            pos += i_;
         }
         void SelectTexture(string name)
         {

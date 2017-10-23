@@ -28,6 +28,33 @@ namespace wtf
             keys.Add(new KeyHelper(Keys.NumPad9, "9"));
             keys.Add(new KeyHelper(Keys.NumPad0, "0"));
             keys.Add(new KeyHelper(Keys.Decimal, "."));
+
+            keys.Add(new KeyHelper(Keys.Decimal, "A"));
+            keys.Add(new KeyHelper(Keys.Decimal, "B"));
+            keys.Add(new KeyHelper(Keys.Decimal, "C"));
+            keys.Add(new KeyHelper(Keys.Decimal, "D"));
+            keys.Add(new KeyHelper(Keys.Decimal, "E"));
+            keys.Add(new KeyHelper(Keys.Decimal, "F"));
+            keys.Add(new KeyHelper(Keys.Decimal, "G"));
+            keys.Add(new KeyHelper(Keys.Decimal, "H"));
+            keys.Add(new KeyHelper(Keys.Decimal, "I"));
+            keys.Add(new KeyHelper(Keys.Decimal, "J"));
+            keys.Add(new KeyHelper(Keys.Decimal, "K"));
+            keys.Add(new KeyHelper(Keys.Decimal, "L"));
+            keys.Add(new KeyHelper(Keys.Decimal, "M"));
+            keys.Add(new KeyHelper(Keys.Decimal, "N"));
+            keys.Add(new KeyHelper(Keys.Decimal, "O"));
+            keys.Add(new KeyHelper(Keys.Decimal, "P"));
+            keys.Add(new KeyHelper(Keys.Decimal, "Q"));
+            keys.Add(new KeyHelper(Keys.Decimal, "R"));
+            keys.Add(new KeyHelper(Keys.Decimal, "S"));
+            keys.Add(new KeyHelper(Keys.Decimal, "T"));
+            keys.Add(new KeyHelper(Keys.Decimal, "U"));
+            keys.Add(new KeyHelper(Keys.Decimal, "V"));
+            keys.Add(new KeyHelper(Keys.Decimal, "W"));
+            keys.Add(new KeyHelper(Keys.Decimal, "XXX"));
+            keys.Add(new KeyHelper(Keys.Decimal, "why"));
+            keys.Add(new KeyHelper(Keys.Decimal, "zee"));
         }
 
         public void Update(KeyboardState kbs)

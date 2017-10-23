@@ -10,6 +10,7 @@ namespace wtf
     /// </summary>
     public class Game1 : Game
     {
+        KeyHelper u, d, l, r;
         KeyHelper spaceConnect; //used to connect to dude
         KeyHelper enterkey;
         TypeNigga nigga;
@@ -63,6 +64,8 @@ namespace wtf
         {
             spaceConnect = new KeyHelper(Keys.Space, "CONNECT TO DUDE YUP");
             enterkey = new KeyHelper(Keys.Enter, "ENTER NIGGA 3000");
+
+            u = new KeyHelper(Keys.Up, "UP");
 
             font = Content.Load<SpriteFont>("File");
             spriteBatch = new SpriteBatch(GraphicsDevice);
