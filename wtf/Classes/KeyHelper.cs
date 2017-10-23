@@ -9,10 +9,12 @@ namespace wtf
         Keys key;
         bool wasPressed;
         bool isPressed;
+        string character;
 
-        public KeyHelper(Keys key_)
+        public KeyHelper(Keys key_, string character_)
         {
             key = key_;
+            character = character_;
         }
 
         public void Update(KeyboardState kbs_)
@@ -35,6 +37,10 @@ namespace wtf
         public bool justPressed()
         {
             return isPressed && !wasPressed;
+        }
+        public string returnString()
+        {
+            return character;
         }
     }
 }

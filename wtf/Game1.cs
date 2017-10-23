@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections.Generic;
 namespace wtf
 {
     /// <summary>
@@ -9,6 +10,12 @@ namespace wtf
     /// </summary>
     public class Game1 : Game
     {
+        KeyHelper spaceConnect; //used to connect to dude
+        KeyHelper enterkey;
+        TypeNigga nigga;
+        SpriteFont font;
+        List<Entity> entities;
+        int id;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         CoolTexture testTex;
@@ -28,12 +35,16 @@ namespace wtf
         }
         protected override void Initialize()
         {
+            nigga = new TypeNigga();
+
             graphics.PreferredBackBufferHeight = 1080 / 2;
             graphics.PreferredBackBufferWidth = 1920 / 2;
             Window.IsBorderless = true;
             graphics.ApplyChanges();
             SetupDrawVariables();
             base.Initialize();
+
+            id = 0;
         }
         void SetupDrawVariables()
         {
@@ -50,6 +61,10 @@ namespace wtf
         }
         protected override void LoadContent()
         {
+            spaceConnect = new KeyHelper(Keys.Space, "CONNECT TO DUDE YUP");
+            enterkey = new KeyHelper(Keys.Enter, "ENTER NIGGA 3000");
+
+            font = Content.Load<SpriteFont>("File");
             spriteBatch = new SpriteBatch(GraphicsDevice);
             testTex = new CoolTexture(
                 AnimType.Loop,
@@ -62,7 +77,7 @@ namespace wtf
             left = new PadHelper(Buttons.RightThumbstickLeft);
             right = new PadHelper(Buttons.RightThumbstickRight);
             player = new Entity(new Vector2(300, 300), new CoolTexture[1] { testTex }, 100, 0, 0, new Vector2(100, 10));
-            onlineHelper = new OnlineStuff();
+            onlineHelper = new OnlineStuff(this);
         }
         protected override void UnloadContent()
         {
@@ -89,6 +104,20 @@ namespace wtf
             onlineHelper.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
             helperReturn = onlineHelper.HandleWebConnections();
 
+            nigga.Update(Keyboard.GetState());
+            spaceConnect.Update(Keyboard.GetState());
+            enterkey.Update(Keyboard.GetState());
+            if (enterkey.justPressed())
+            {
+                //send da string first
+                nigga.Reset();
+               
+            }
+            if (spaceConnect.justPressed())
+            {
+                //connect n all
+                nigga.Reset();
+            }
             //! update pipeline !
             //move
 
@@ -102,6 +131,7 @@ namespace wtf
         {
             GraphicsDevice.SetRenderTarget(mainTarget);
             spriteBatch.Begin();
+            spriteBatch.DrawString(font, nigga.getString(), Vector2.Zero,Color.AliceBlue);
             player.Draw(spriteBatch);
             if (helperReturn == 1)
             {
